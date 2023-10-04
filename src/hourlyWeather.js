@@ -1,38 +1,24 @@
-import { loadJson } from "./helperFunctions"
+import { loadJson, militaryToStandardTime, formatHour, createElement } from "./helperFunctions"
 
 async function loadHourlyWeather(url, inCelsius=false) {
     const data = await loadJson(url)
 
-    //Temp and the picture
-    for (let i=0; i<5; i++) {
-        console.log(data.forecast.forecastday[0].hour[i].time_epoch)
-        const hour = await formatHour(data.forecast.forecastday[0].hour[i].time_epoch)
-        const temperature = data.forecast.forecastday[0].hour[i].temp_c
-        const icon = data.forecast.forecastday[0].hour[i].condition.icon
+    const timeNow = formatHour(data.location.localtime_epoch)
 
-        createElement(hour, temperature, icon)
+    for (let i=timeNow+1; i<(timeNow+8); i++) {
+        let temperature = data.forecast.forecastday[0].hour[i].temp_f
+        const icon = data.forecast.forecastday[0].hour[i].condition.icon
+        const hour24 = formatHour(data.forecast.forecastday[0].hour[i].time_epoch)
+        const hour = militaryToStandardTime(hour24)  
+        
+        if (inCelsius) {
+            temperature = data.forecast.forecastday[0].hour[i].temp_c
+        }
+
+        createElement(hour, temperature, icon, inCelsius)
     }
 }
 
-function formatHour(epoch) {
-    const epoch_time = epoch*1000
-    const hour = new Date(epoch_time)
-    return hour.getHours()
-}
 
-function createElement(hour, temp, icon) {
-    const hourlyContainer = document.querySelector(".hourly-container")
-    const element = document.createElement("div")
-    element.classList.add("hourly")
-    element.innerHTML = `
-        <div class="hourly">
-            <div class="hourly-time">${hour}</div>
-            <div class="hourly-temp">${temp}</div>
-            <div class="hourly-img"> <img src="${icon}"> </div>
-        </div>
-    `
-
-    hourlyContainer.appendChild(element)
-}
 
 export {loadHourlyWeather}
