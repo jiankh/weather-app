@@ -28,9 +28,9 @@ async function loadJson(url) {
 async function loadCurrentWeather(url) {
     const currentData = await loadJson(url)
     weatherContainer.innerHTML = currentData.current.condition.text
-    locationContainer.innerHTML = currentData.location.name
+    locationContainer.innerHTML = `<img data-location-pin src="images/location-pin.svg"> ${currentData.location.name}`
     dateContainer.innerHTML = await formatDate(currentData.location.localtime_epoch)
-    currentDegrees.innerHTML = currentData.current.temp_f
+    currentDegrees.innerHTML = `${currentData.current.temp_f} °F`
     currentGraphic.innerHTML = `<img class=current-image src="${currentData.current.condition.icon}" alt="weather icon">`
 
     //Extra Section
