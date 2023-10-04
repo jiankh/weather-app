@@ -6,11 +6,12 @@
     <title>Weather App</title>
     <script defer src="main.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/daylight.pnggit" type="image/x-icon">
 </head>
 </head>
 <body>
     <div class="header">
-        <div class="logo-container">WeatherApp</div>
+        <div class="logo-container"> <img src="images/daylight.png" > WeatherApp</div>
         <div class="units-container">
             <input type="checkbox" id="unit-toggle" class="hidden-checkbox">
             <label for="unit-toggle" class="toggle-label"></label>
@@ -69,7 +70,11 @@
         </div>
     </div>
 
-    <div class="hourly-container">
+    <div class="hourly-container-wrap">
+        <div class="hourly-title"> <h1>Hourly Forecast</h1></div>
+        <div class="hourly-container">
+        
+        </div>
     </div>
 
     <div class="future-container">
