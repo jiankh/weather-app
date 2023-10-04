@@ -1,3 +1,5 @@
+import { loadJson, formatDate } from "./helperFunctions"
+
 const weatherContainer = document.querySelector(".weather-container")
 const locationContainer = document.querySelector(".location-container")
 const dateContainer = document.querySelector(".current-time-container")
@@ -10,22 +12,7 @@ const currentRainChance = document.querySelector("[data-rain-chance]")
 const currentWind = document.querySelector("[data-wind]")
 
 
-async function loadJson(url) {
-    try{
-        let response = await fetch(url, {mode: 'cors'})
-        if (response.status == 200) {
-            let data = await response.json()
-            return data
-        }
-    } catch (error) {
-        console.log(error)
-    }
-}
-
-
-
-
-async function loadCurrentWeather(url) {
+async function loadCurrentWeather(url,inCelsius=false) {
     const currentData = await loadJson(url)
     weatherContainer.innerHTML = currentData.current.condition.text
     locationContainer.innerHTML = `<img data-location-pin src="images/location-pin.svg"> ${currentData.location.name}`
@@ -38,14 +25,12 @@ async function loadCurrentWeather(url) {
     currentHumidity.innerHTML = `${currentData.current.humidity} %`
     currentRainChance.innerHTML = `${currentData.forecast.forecastday[0].day.daily_chance_of_rain} %`
     currentWind.innerHTML = `${currentData.current.wind_mph} MPH`
-}
 
-
-
-async function formatDate(epoch) {
-    const epochtime = epoch*1000 //milliseconds
-    const date = new Date(epochtime)
-    return date.toDateString()
+    //Celcius / Farenheit
+    if (inCelsius) {
+        currentFeel.innerHTML = `${currentData.current.feelslike_c} °C`
+        currentDegrees.innerHTML = `${currentData.current.temp_c} °C`
+    }
 }
 
 export {loadCurrentWeather}
