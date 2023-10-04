@@ -34,10 +34,10 @@ async function loadCurrentWeather(url) {
     currentGraphic.innerHTML = `<img class=current-image src="${currentData.current.condition.icon}" alt="weather icon">`
 
     //Extra Section
-    currentFeel.innerHTML = currentData.current.feelslike_f
-    currentHumidity.innerHTML = currentData.current.humidity
-    currentRainChance.innerHTML = currentData.forecast.forecastday[0].day.daily_chance_of_rain
-    currentWind.innerHTML = currentData.current.wind_mph
+    currentFeel.innerHTML = `${currentData.current.feelslike_f} °F` 
+    currentHumidity.innerHTML = `${currentData.current.humidity} %`
+    currentRainChance.innerHTML = `${currentData.forecast.forecastday[0].day.daily_chance_of_rain} %`
+    currentWind.innerHTML = `${currentData.current.wind_mph} MPH`
 }
 
 
