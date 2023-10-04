@@ -1,5 +1,6 @@
 * {
     margin: 0;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
 /* HEADER */
@@ -15,14 +16,40 @@
 /* CURRENT MAIN */
 
 .current-container {
-    background-color: teal;
+    /* background-color: teal; */
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding:30px;
 }
 
 .current-main {
-    background-color: lightblue;
+    /* background-color: lightblue; */
     display: flex;
-    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    /* flex-grow: 1; */
+    gap: 20px;
+
+}
+
+.current-main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;g
+}
+
+
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#search {
+    width:100%;
+    padding: 5px;
 }
 
 .weather-container {
@@ -38,16 +65,25 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding:20px;
+}
+.current-degrees {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
 }
 
 .current-time-container {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    font-style: italic;
 }
-
-
 
 .current-image {
     height:120px
+}
+
+[data-location-pin] {
+    height: 2rem;
 }
 
 /* CURRENT EXTRA  */
@@ -56,7 +92,8 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 10px;
+    padding-left: 50px;
+    /* background-color: aqua; */
 }
 
 .current-extra {
