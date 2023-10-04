@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: blue;
+    padding: 20px;
+}
+
+
+
+/* CURRENT MAIN */
+
+.current-container {
+    background-color: teal;
+    display: flex;
+}
+
+.current-main {
+    background-color: lightblue;
+    display: flex;
+    flex-grow: 1;
+}
+
+.weather-container {
+    font-size: 3rem;
+}
+
+.location-container {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.current-main-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.current-time-container {
+    font-size: 2rem;
+}
+
+
+
+.current-image {
+    height:120px
+}
+
+/* CURRENT EXTRA  */
+.current-extra-container {
+    min-width: 20vw;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+}
+
+.current-extra {
+    display:flex;
+}
+
+.current-extra-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
