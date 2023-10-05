@@ -16,6 +16,7 @@ body {
     box-shadow: inset 2px 2px 3px;
 }
 
+
 /* HEADER */
 .header {
     display: flex;
@@ -200,7 +201,7 @@ body {
     align-items: center;
     gap:10px;
     padding: 30px 0;
-
+    
 }
 .forecast {
     display: flex;
@@ -210,6 +211,7 @@ body {
 
 .forecast-text {
     flex-grow: 1;
+    min-width: 185px;
 }
 
 .forecast > div {
@@ -242,6 +244,7 @@ footer {
     padding: 10px;
     gap: 30px;
     background-color: white;
+    width: 100%;
 }
 .footer-github {
     display: flex;
@@ -254,3 +257,16 @@ footer {
 .github-logo{
     height:30px;
 }
+
+@media screen and (max-width: 800px) {
+    .current-container {
+        flex-direction: column;
+    }
+    .current-extra-container {
+        padding: 0;
+    }
+    .forecast-container {
+        overflow-x: scroll;
+    }
+
+  }
