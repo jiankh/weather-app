@@ -11,9 +11,18 @@ async function loadJson(url) {
     }
 }
 
+function epochToSimpleDate(epoch) {
+    const epoch_time = epoch*1000
+    const date = new Date(epoch_time)
+    const dayOfWeek = date.getDay()
+    const dayOfMonth = date.getDate()
+    const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    return `${dayNames[dayOfWeek]} ${dayOfMonth}`
+}
+
 async function formatDate(epoch) {
-    const epochtime = epoch*1000 //milliseconds
-    const date = new Date(epochtime)
+    const epoch_time = epoch*1000 //milliseconds
+    const date = new Date(epoch_time)
     return date.toDateString()
 }
 
@@ -61,5 +70,6 @@ export {loadJson,
         militaryToStandardTime, 
         formatHour, 
         createElement,
-        clearHourlyContainer
+        clearHourlyContainer,
+        epochToSimpleDate
     }
