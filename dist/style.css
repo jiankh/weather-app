@@ -151,7 +151,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding-left: 100px;
+    padding-left: 200px;
 }
 
 .current-extra {
