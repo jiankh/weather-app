@@ -11,7 +11,7 @@ const searchform = document.querySelector("[data-form]")
 searchform.addEventListener('submit', async (e) => {
     e.preventDefault()
     const searchInput = document.querySelector("#search").value
-    url = `https://api.weatherapi.com/v1/forecast.json?key=a78d8065ac934df5b78171003230310&q=`${searchInput}`&days=1&aqi=no&alerts=no`
+    url = `https://api.weatherapi.com/v1/forecast.json?key=a78d8065ac934df5b78171003230310&q=${searchInput}&days=1&aqi=no&alerts=no`
     await loadCurrentWeather(url)
 
     clearHourlyContainer()
