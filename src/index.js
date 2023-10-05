@@ -29,10 +29,12 @@ toggleDegree.addEventListener("change", async () => {
         clearHourlyContainer()
         await loadCurrentWeather(url,true)
         await loadHourlyWeather(url,true)
+        await loadForecastWeather(url,true)
     } else {
         clearHourlyContainer()
         await loadCurrentWeather(url)
         await loadHourlyWeather(url)
+        await loadForecastWeather(url)
     }
 })
 

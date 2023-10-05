@@ -11,14 +11,22 @@ async function loadJson(url) {
     }
 }
 
-function epochToSimpleDate(epoch) {
-    const epoch_time = epoch*1000
-    const date = new Date(epoch_time)
-    const dayOfWeek = date.getDay()
+function epochToSimpleDate(epoch, timeZone = 'UTC') {
+    const epochTime = epoch * 1000
+    const date = new Date(epochTime)
+    const dayOfWeek = date.toLocaleString('en-US', { weekday: 'short', timeZone })
     const dayOfMonth = date.getDate()
-    const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    return `${dayNames[dayOfWeek]} ${dayOfMonth}`
+    return `${dayOfWeek} ${dayOfMonth}`
 }
+
+// function epochToSimpleDate(epoch) {
+//     const epoch_time = epoch*1000
+//     const date = new Date(epoch_time)
+//     const dayOfWeek = date.getDay()
+//     const dayOfMonth = date.getDate()
+//     const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+//     return `${dayNames[dayOfWeek]} ${dayOfMonth}`
+// }
 
 async function formatDate(epoch) {
     const epoch_time = epoch*1000 //milliseconds
