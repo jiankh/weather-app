@@ -5,7 +5,8 @@ async function loadForecastWeather(url, inCelsius=false) {
 
     for (let i = 0; i<3; i++) {
         // const date = epochToSimpleDate(data.forecast.forecastday[i].date_epoch)
-        const date = (await formatDate(data.forecast.forecastday[i].date_epoch)).slice(0,-4)
+        const date = changeDateToSimple(data.forecast.forecastday[i].date)
+        
         let tempMax = data.forecast.forecastday[i].day.maxtemp_f
         let tempMin = data.forecast.forecastday[i].day.mintemp_f
 
@@ -44,5 +45,12 @@ function insertForecast(slot,date,tempMax,tempMin,icon,forecast,rainChance,wind,
         tempEl.textContent = `${tempMax}°C / ${tempMin}°C`
     }
 }
+
+function changeDateToSimple(inputDate) {
+    const months = ["0","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct", "Nov", "Dec"]
+    const inputMonth = inputDate.slice(5,7)
+    const inputDay = inputDate.slice(-2)
+    return `${months[inputMonth]} ${inputDay}`
+}   
 
 export {loadForecastWeather}

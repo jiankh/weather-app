@@ -28,10 +28,10 @@ function epochToSimpleDate(epoch, timeZone = 'UTC') {
 //     return `${dayNames[dayOfWeek]} ${dayOfMonth}`
 // }
 
-async function formatDate(epoch) {
+function formatDate(epoch) {
     const epoch_time = epoch*1000 //milliseconds
-    const date = new Date(epoch_time)
-    return date.toDateString()
+    const date_epoch = new Date(epoch_time)
+    return date_epoch.toDateString()
 }
 
 function militaryToStandardTime(time) {
