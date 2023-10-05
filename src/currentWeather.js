@@ -18,7 +18,7 @@ async function loadCurrentWeather(url,inCelsius=false) {
     locationContainer.innerHTML = `<img data-location-pin src="images/location-pin.svg"> ${currentData.location.name}`
     dateContainer.innerHTML = await formatDate(currentData.location.localtime_epoch)
     currentDegrees.innerHTML = `${currentData.current.temp_f} °F`
-    currentGraphic.innerHTML = `<img class=current-image src="${currentData.current.condition.icon}" alt="weather icon">`
+    currentGraphic.innerHTML = `<img class=current-image src="https:${currentData.current.condition.icon}" alt="weather icon">`
 
     //Extra Section
     currentFeel.innerHTML = `${currentData.current.feelslike_f} °F` 

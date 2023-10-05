@@ -1,7 +1,7 @@
 
 async function loadJson(url) {
     try{
-        let response = await fetch(url, {mode: 'cors'})
+        let response = await fetch(url)
         if (response.status == 200) {
             let data = await response.json()
             return data
