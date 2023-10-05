@@ -196,7 +196,7 @@
 .forecast {
     display: flex;
     width: 60vw;
-    gap: 50px;
+    gap: 20px;
 }
 
 .forecast-text {
@@ -206,4 +206,21 @@
 .forecast > div {
     display:flex;
     align-items: center;
+}
+.forecast-date{
+    min-width: 100px
+}
+.forecast-temp {
+    min-width: 150px;
+}
+.windy-icon{
+    height:35px;
+}
+
+.forecast-rain {
+    width:120px;
+}
+
+.forecast-wind {
+    width: 65px;
 }
