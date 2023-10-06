@@ -19,7 +19,7 @@ searchform.addEventListener('submit', async (e) => {
     clearHourlyContainer()
     await loadHourlyWeather(`https://api.weatherapi.com/v1/forecast.json?key=a78d8065ac934df5b78171003230310&q=${searchInput}&days=3&aqi=no&alerts=no`)
 
-    loadForecastWeather(`https://api.weatherapi.com/v1/forecast.json?key=a78d8065ac934df5b78171003230310&q=${searchInput}&days=3&aqi=no&alerts=no`)
+    await loadForecastWeather(`https://api.weatherapi.com/v1/forecast.json?key=a78d8065ac934df5b78171003230310&q=${searchInput}&days=3&aqi=no&alerts=no`)
 })
 
 
