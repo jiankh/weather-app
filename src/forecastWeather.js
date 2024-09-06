@@ -22,8 +22,12 @@ async function loadForecastWeather(url, inCelsius=false) {
             tempMin = data.forecast.forecastday[i].day.mintemp_c
         }
 
+        console.log(data.forecast.forecastday[i].date)
+
         insertForecast(slot,date,tempMax,tempMin,icon,forecast,rainChance,wind,inCelsius)
     }
+
+    
 }
 
 function insertForecast(slot,date,tempMax,tempMin,icon,forecast,rainChance,wind, inCelsius=false) {
@@ -48,8 +52,8 @@ function insertForecast(slot,date,tempMax,tempMin,icon,forecast,rainChance,wind,
 
 function changeDateToSimple(inputDate) {
     const months = ["0","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct", "Nov", "Dec"]
-    const inputMonth = inputDate.slice(5,7)
-    const inputDay = inputDate.slice(-2)
+    const inputMonth = parseInt(inputDate.slice(5,7))
+    const inputDay = parseInt(inputDate.slice(-2))
     return `${months[inputMonth]} ${inputDay}`
 }   
 
